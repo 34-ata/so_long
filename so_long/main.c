@@ -6,7 +6,7 @@
 /*   By: faata <faata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:50:45 by faata             #+#    #+#             */
-/*   Updated: 2023/12/04 17:53:46 by faata            ###   ########.fr       */
+/*   Updated: 2023/12/04 18:43:45 by faata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,15 @@ void	xpm_init(t_mlx *st_mlx)
 	int	b;
 
 	st_mlx->wall = mlx_xpm_file_to_image(st_mlx->mlx,
-			"/Users/faata/Desktop/so_long/xpms/wall", &a, &b);
+			"xpms/wall", &a, &b);
 	st_mlx->monster = mlx_xpm_file_to_image(st_mlx->mlx,
-			"/Users/faata/Desktop/so_long/xpms/monster", &a, &b);
+			"xpms/monster", &a, &b);
 	st_mlx->cookie = mlx_xpm_file_to_image(st_mlx->mlx,
-			"/Users/faata/Desktop/so_long/xpms/cookie", &a, &b);
+			"xpms/cookie", &a, &b);
 	st_mlx->parquet = mlx_xpm_file_to_image(st_mlx->mlx,
-			"/Users/faata/Desktop/so_long/xpms/parquet", &a, &b);
+			"xpms/parquet", &a, &b);
 	st_mlx->exit = mlx_xpm_file_to_image(st_mlx->mlx,
-			"/Users/faata/Desktop/so_long/xpms/exit", &a, &b);
+			"xpms/exit", &a, &b);
 	st_mlx->mlx_win = mlx_new_window(st_mlx->mlx,
 			(st_mlx->map_x * 64), (st_mlx->map_y * 64), "So_long");
 }
