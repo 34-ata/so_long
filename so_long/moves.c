@@ -6,7 +6,7 @@
 /*   By: faata <faata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:50:10 by faata             #+#    #+#             */
-/*   Updated: 2023/12/04 17:54:00 by faata            ###   ########.fr       */
+/*   Updated: 2023/12/27 13:16:54 by faata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,13 @@ int	key_hook(int keycode, t_mlx *vars)
 	(void)vars;
 	if (keycode == 53)
 		exit(1);
-	if (keycode == 2)
+	if (keycode == 2 || keycode == 124)
 		go_right(vars);
-	if (keycode == 0)
+	if (keycode == 0 || keycode == 123)
 		go_left(vars);
-	if (keycode == 1)
+	if (keycode == 1 || keycode == 125)
 		go_down(vars);
-	if (keycode == 13)
+	if (keycode == 13 || keycode == 126)
 		go_up(vars);
 	return (0);
 }

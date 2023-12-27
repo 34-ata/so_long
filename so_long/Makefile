@@ -9,7 +9,7 @@ MINI = ./mlx/libmlx.a
 all: ${NAME}
 
 $(MINI):
-	make -C ./mlx
+	make -C ./mlx &> /dev/null
 
 $(NAME): $(MINI) $(OBJS) 
 	$(CC) ${CFLAGS} $(OBJS) -o $(NAME) 

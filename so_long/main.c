@@ -6,7 +6,7 @@
 /*   By: faata <faata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:50:45 by faata             #+#    #+#             */
-/*   Updated: 2023/12/04 18:43:45 by faata            ###   ########.fr       */
+/*   Updated: 2023/12/27 13:34:01 by faata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,16 @@ void	xpm_init(t_mlx *st_mlx)
 			"xpms/parquet", &a, &b);
 	st_mlx->exit = mlx_xpm_file_to_image(st_mlx->mlx,
 			"xpms/exit", &a, &b);
+	if (!st_mlx->wall || !st_mlx->monster || !st_mlx->cookie
+		|| !st_mlx->parquet || !st_mlx->exit)
+		ft_close("Can't find xpms.\n");
 	st_mlx->mlx_win = mlx_new_window(st_mlx->mlx,
 			(st_mlx->map_x * 64), (st_mlx->map_y * 64), "So_long");
 }
 
-int	ft_close(void *x)
+int	ft_close(char *x)
 {
-	(void)x;
+	write(1, x, ft_strlen(x));
 	exit(1);
 }
 
@@ -81,14 +84,14 @@ int	main(int ac, char **av)
 	t_mlx	st_mlx;
 
 	if (ac != 2)
-		return (write(1, "Error\n", 6), 1);
+		ft_close("Invalid argument count.\n");
 	st_mlx.map_path = av[1];
 	st_mlx.mlx = mlx_init();
 	st_mlx.map = ft_getmap(av[1]);
 	st_mlx.map_x = ft_strlen(st_mlx.map[0]) - 1;
 	st_mlx.map_y = ft_maplen(st_mlx.map_path);
 	if (map_check(&st_mlx) == 0)
-		exit (write(1, "Error!\n", 7));
+		ft_close("Map check error.\n");
 	xpm_init(&st_mlx);
 	ft_printmap(&st_mlx, -1, 0, 0);
 	mlx_hook(st_mlx.mlx_win, 02, 0L, key_hook, &st_mlx);

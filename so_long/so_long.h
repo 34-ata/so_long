@@ -35,5 +35,6 @@ void	ft_printmap(t_mlx *st_mlx, int i, int x, int y);
 int ft_maplen(char *path);
 char **ft_getmap(char *path);
 void	ft_putnbr(unsigned int a);
+int	ft_close(char *x);
 
 #endif
