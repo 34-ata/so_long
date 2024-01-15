@@ -26,7 +26,7 @@ void	go_right(t_mlx *vars)
 		vars->map[vars->monster_y / 64][(vars->monster_x / 64) + 1] = 'P';
 		ft_printmap(vars, -1, 0, 0);
 		vars->num_of_mov += 1;
-		write(1, "Number of move : ", 17);
+		write(1, "Number of movements : ", 22);
 		ft_putnbr(vars->num_of_mov);
 		write(1, "\n", 1);
 	}
@@ -46,7 +46,7 @@ void	go_left(t_mlx *vars)
 		vars->map[vars->monster_y / 64][(vars->monster_x / 64) - 1] = 'P';
 		ft_printmap(vars, -1, 0, 0);
 		vars->num_of_mov += 1;
-		write(1, "Number of move : ", 17);
+		write(1, "Number of movements : ", 22);
 		ft_putnbr(vars->num_of_mov);
 		write(1, "\n", 1);
 	}
@@ -66,7 +66,7 @@ void	go_up(t_mlx *vars)
 		vars->map[(vars->monster_y / 64) - 1][vars->monster_x / 64] = 'P';
 		ft_printmap(vars, -1, 0, 0);
 		vars->num_of_mov += 1;
-		write(1, "Number of move : ", 17);
+		write(1, "Number of movements : ", 22);
 		ft_putnbr(vars->num_of_mov);
 		write(1, "\n", 1);
 	}
@@ -86,7 +86,7 @@ void	go_down(t_mlx *vars)
 		vars->map[(vars->monster_y / 64) + 1][vars->monster_x / 64] = 'P';
 		ft_printmap(vars, -1, 0, 0);
 		vars->num_of_mov += 1;
-		write(1, "Number of move : ", 17);
+		write(1, "Number of movements : ", 22);
 		ft_putnbr(vars->num_of_mov);
 		write(1, "\n", 1);
 	}
