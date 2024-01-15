@@ -61,15 +61,15 @@ void	xpm_init(t_mlx *st_mlx)
 	int	b;
 
 	st_mlx->wall = mlx_xpm_file_to_image(st_mlx->mlx,
-			"xpms/wall", &a, &b);
+			"textures/wall", &a, &b);
 	st_mlx->monster = mlx_xpm_file_to_image(st_mlx->mlx,
-			"xpms/monster", &a, &b);
+			"textures/monster", &a, &b);
 	st_mlx->cookie = mlx_xpm_file_to_image(st_mlx->mlx,
-			"xpms/cookie", &a, &b);
+			"textures/cookie", &a, &b);
 	st_mlx->parquet = mlx_xpm_file_to_image(st_mlx->mlx,
-			"xpms/parquet", &a, &b);
+			"textures/parquet", &a, &b);
 	st_mlx->exit = mlx_xpm_file_to_image(st_mlx->mlx,
-			"xpms/exit", &a, &b);
+			"textures/exit", &a, &b);
 	if (!st_mlx->wall || !st_mlx->monster || !st_mlx->cookie
 		|| !st_mlx->parquet || !st_mlx->exit)
 		ft_close("Cannot find xpms.\n");

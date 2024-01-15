@@ -35,9 +35,6 @@ int	overload(t_mlx *st_mlx)
 		if (len != ft_strlen(st_mlx->map[i]) - 1
 			&& i != ft_maplen(st_mlx->map_path) - 1)
 			return (0);
-		else if (i != ft_maplen(st_mlx->map_path) - 1
-			&& len != ft_strlen(st_mlx->map[i]) - 1)
-			return (0);
 	}
 	return (1);
 }
@@ -89,6 +86,8 @@ int	ft_count(t_mlx *st_mlx, int exit_count, int cookie_count, int monster_count)
 				st_mlx->monster_x = j;
 				st_mlx->monster_y = i;
 			}
+			else if (st_mlx->map[i][j] != '\n' && st_mlx->map[i][j] != '1' && st_mlx->map[i][j] != '0')
+				ft_close("Invalid map element(s).\n");
 		}
 	}
 	if (exit_count != 1 || cookie_count == 0 || monster_count != 1)
@@ -96,17 +95,16 @@ int	ft_count(t_mlx *st_mlx, int exit_count, int cookie_count, int monster_count)
 	return (1);
 }
 
-int	map_check(t_mlx *st_mlx)
+void	map_check(t_mlx *st_mlx)
 {
 	if (!ft_count(st_mlx, 0, 0, 0))
 		ft_close("Incorrect cookie, player or exit count.\n");
 	if (!boundary(st_mlx))
 		ft_close("Map does not surround by walls.\n");
 	if (!overload(st_mlx))
-		ft_close("Map lines or columns are not equal.\n");
+		ft_close("Map lines are not equal.\n");
 	if (!(flood_fill(st_mlx) && flood_fill0(st_mlx)))
 		ft_close("Map has unreachable element(s).\n");
 	if (!ft_extension(st_mlx->map_path))
 		ft_close("Map extension does not correct.\n");
-	return (1);
 }

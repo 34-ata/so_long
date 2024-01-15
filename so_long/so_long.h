@@ -25,7 +25,7 @@ typedef struct t_mlx {
 	int num_of_mov;
 } t_mlx;
 
-int map_check(t_mlx *st_mlx);
+void map_check(t_mlx *st_mlx);
 void flood_fill3(char **map, int x, int y, t_mlx *st_mlx);
 void flood_fill2(char **map, int x, int y, t_mlx *st_mlx);
 int flood_fill(t_mlx *st_mlx);

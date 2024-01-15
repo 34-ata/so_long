@@ -52,8 +52,6 @@ void	ft_check_this_out(char c, t_mlx *st_mlx, int x, int y)
 			st_mlx->parquet, x, y);
 	else if (c == 'E')
 		ft_printmap_e(st_mlx, x, y);
-	else if (c != '\n')
-		exit (1);
 }
 
 void	ft_printmap(t_mlx *st_mlx, int i, int x, int y)
