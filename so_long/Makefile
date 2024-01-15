@@ -26,4 +26,5 @@ fclean: clean
 	make clean -C mlx/
 
 re: fclean all
+
 .PHONY: fclean re all clean
