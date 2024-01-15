@@ -99,14 +99,14 @@ int	ft_count(t_mlx *st_mlx, int exit_count, int cookie_count, int monster_count)
 int	map_check(t_mlx *st_mlx)
 {
 	if (!ft_count(st_mlx, 0, 0, 0))
-		return (0);
+		ft_close("Incorrect cookie, player or exit count.\n");
 	if (!boundary(st_mlx))
-		return (0);
+		ft_close("Map does not surround by walls.\n");
 	if (!overload(st_mlx))
-		return (0);
+		ft_close("Map lines or columns are not equal.\n");
 	if (!(flood_fill(st_mlx) && flood_fill0(st_mlx)))
-		return (0);
+		ft_close("Map has unreachable element(s).\n");
 	if (!ft_extension(st_mlx->map_path))
-		return (0);
+		ft_close("Map extension does not correct.\n");
 	return (1);
 }

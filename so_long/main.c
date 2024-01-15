@@ -20,6 +20,8 @@ int	ft_maplen(char *path)
 
 	len = 0;
 	fd = open(path, O_RDWR);
+	if (fd == -1)
+		ft_close("Cannot open map.\n");
 	temp = get_next_line(fd);
 	while (temp)
 	{
@@ -44,6 +46,8 @@ char	**ft_getmap(char *path)
 	if (!res)
 		return (0);
 	fd = open(path, O_RDWR);
+	if (fd == -1)
+		ft_close("Cannot open map.\n");
 	while (i < len)
 		res[i++] = get_next_line(fd);
 	res[i] = 0;
@@ -68,7 +72,7 @@ void	xpm_init(t_mlx *st_mlx)
 			"xpms/exit", &a, &b);
 	if (!st_mlx->wall || !st_mlx->monster || !st_mlx->cookie
 		|| !st_mlx->parquet || !st_mlx->exit)
-		ft_close("Can't find xpms.\n");
+		ft_close("Cannot find xpms.\n");
 	st_mlx->mlx_win = mlx_new_window(st_mlx->mlx,
 			(st_mlx->map_x * 64), (st_mlx->map_y * 64), "So_long");
 }
@@ -90,8 +94,7 @@ int	main(int ac, char **av)
 	st_mlx.map = ft_getmap(av[1]);
 	st_mlx.map_x = ft_strlen(st_mlx.map[0]) - 1;
 	st_mlx.map_y = ft_maplen(st_mlx.map_path);
-	if (map_check(&st_mlx) == 0)
-		ft_close("Map check error.\n");
+	map_check(&st_mlx);
 	xpm_init(&st_mlx);
 	ft_printmap(&st_mlx, -1, 0, 0);
 	mlx_hook(st_mlx.mlx_win, 02, 0L, key_hook, &st_mlx);
