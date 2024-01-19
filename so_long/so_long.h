@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faata <faata@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: faata <faata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:50:37 by faata             #+#    #+#             */
-/*   Updated: 2024/01/15 13:21:36 by faata            ###   ########.tr       */
+/*   Updated: 2024/01/18 16:40:22 by faata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int		ft_maplen(char *path);
 char	**ft_getmap(char *path);
 void	ft_putnbr(unsigned int a);
 int		ft_close(char *x);
+int		ft_extension(char *path);
 
 #endif

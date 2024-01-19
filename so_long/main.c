@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faata <faata@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: faata <faata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:50:45 by faata             #+#    #+#             */
-/*   Updated: 2023/12/27 13:34:01 by faata            ###   ########.tr       */
+/*   Updated: 2024/01/18 17:31:03 by faata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		ft_close("Invalid argument count.\n");
 	st_mlx.map_path = av[1];
+	if (!ft_extension(st_mlx.map_path))
+		ft_close("Map extension does not correct.\n");
 	st_mlx.mlx = mlx_init();
 	st_mlx.map = ft_getmap(av[1]);
 	st_mlx.map_x = ft_strlen(st_mlx.map[0]) - 1;
@@ -98,6 +100,6 @@ int	main(int ac, char **av)
 	xpm_init(&st_mlx);
 	ft_printmap(&st_mlx, -1, 0, 0);
 	mlx_hook(st_mlx.mlx_win, 02, 0L, key_hook, &st_mlx);
-	mlx_hook(st_mlx.mlx_win, 17, 0L, ft_close, &st_mlx);
+	mlx_hook(st_mlx.mlx_win, 17, 0L, ft_close, "Successfully closed.\n");
 	mlx_loop(st_mlx.mlx);
 }

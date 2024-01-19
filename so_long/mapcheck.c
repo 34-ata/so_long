@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapcheck.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: faata <faata@student.42istanbul.com.tr>    +#+  +:+       +#+        */
+/*   By: faata <faata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:50:55 by faata             #+#    #+#             */
-/*   Updated: 2023/12/04 17:53:52 by faata            ###   ########.tr       */
+/*   Updated: 2024/01/18 17:31:32 by faata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int	boundary(t_mlx *st_mlx)
 	while (st_mlx->map[i])
 		if (st_mlx->map[i++][0] != '1')
 			return (0);
-	i = 0;
 	j = ft_strlen(st_mlx->map[0]) - 2;
+	i = 0;
 	while (st_mlx->map[i])
 		if (st_mlx->map[i++][j] != '1')
 			return (0);
@@ -106,6 +106,4 @@ void	map_check(t_mlx *st_mlx)
 		ft_close("Map does not surround by walls.\n");
 	if (!(flood_fill(st_mlx) && flood_fill0(st_mlx)))
 		ft_close("Map has unreachable element(s).\n");
-	if (!ft_extension(st_mlx->map_path))
-		ft_close("Map extension does not correct.\n");
 }
